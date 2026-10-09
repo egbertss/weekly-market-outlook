@@ -1,0 +1,47 @@
+[note]
+client_name = "Valued client"
+adviser = "Your name"
+firm = "Your firm"
+note_date = ""                      # empty = latest trading day, or "2026-10-09"
+world_benchmark = "MSCI World (URTH)"
+public = false                      # true for LinkedIn: no client name, generic wording
+
+[view]
+# Your own opinion goes here. The generator only describes moves, not causes.
+our_view = []
+next_week = []
+
+[equities]
+"S&P 500" = "^GSPC"
+"Euro Stoxx 50" = "^STOXX50E"
+"FTSE MIB" = "FTSEMIB.MI"
+"DAX" = "^GDAXI"
+"CAC 40" = "^FCHI"
+"MSCI World (URTH)" = "URTH"
+
+[other]
+"EUR/USD" = "EURUSD=X"
+"Gold" = "GC=F"
+"Brent" = "BZ=F"
+"US Treasuries 7-10y (IEF)" = "IEF"
+"US IG credit (LQD)" = "LQD"
+"US high yield (HYG)" = "HYG"
+
+[events]
+enabled = true
+countries = ["united states", "euro area", "germany", "france", "italy"]
+europe_rates = true       # Trading Economics country names
+earnings_watchlist = { "ASML" = "ASML.AS", "SAP" = "SAP.DE", "LVMH" = "MC.PA", "Nestle" = "NESN.SW", "Intesa Sanpaolo" = "ISP.MI", "UniCredit" = "UCG.MI", "Eni" = "ENI.MI", "Apple" = "AAPL", "Microsoft" = "MSFT", "Nvidia" = "NVDA", "Alphabet" = "GOOGL", "Amazon" = "AMZN", "Meta" = "META", "JPMorgan" = "JPM", "Goldman Sachs" = "GS" }
+sec_watchlist = ["AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "JPM", "GS"]
+sec_user_agent = ""      # EDGAR requires e.g. "Your Name your@email.com". Or set the SEC_CONTACT env var / secret
+news = true              # free headlines from public RSS feeds
+# news_feeds = { "ECB" = "https://www.ecb.europa.eu/rss/press.html" }   # blank = Fed, ECB, CNBC
+congress_official = true # Senate eFD + House Clerk, free, no key
+show_13f = true          # big-fund positions from SEC 13F, needs sec_user_agent
+# funds_13f = { "Berkshire Hathaway" = 1067983, "Bridgewater Associates" = 1350694 }   # name = SEC CIK, blank = default list
+# Macro calendar keys, first one set wins: TE_API_KEY, FMP_API_KEY, FRED_API_KEY (free, US dates only)
+# Other optional keys: QUIVER_API_KEY (paid, replaces the official Congress sources). Set as environment variables or GitHub secrets.
+# Dates the APIs miss, e.g. ECB and FOMC decisions (copy from ecb.europa.eu and federalreserve.gov). Shown when they fall in next week.
+manual_events = [
+  # { date = "2026-10-29", country = "Euro area", event = "ECB monetary policy decision" },
+]
